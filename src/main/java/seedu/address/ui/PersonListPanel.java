@@ -18,6 +18,8 @@ public class PersonListPanel extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
 
     @FXML
+    private Label remark;
+    @FXML
     private ListView<Person> personListView;
 
     /**
