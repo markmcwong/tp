@@ -70,6 +70,11 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Parse the remark
+     * @param remark
+     * @return
+     */
     public PersonBuilder withRemark(String remark) {
         this.remark = new Remark(remark);
         return this;
