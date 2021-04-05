@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_POOLS_LISTED_OVERVIEW;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalPools.HOMEPOOL;
 import static seedu.address.testutil.TypicalPools.OFFICEPOOL;
@@ -40,7 +41,7 @@ public class FindPoolCommandTest {
     @Test
     public void execute_oneUnmatchedKeyword_noPoolFound() {
         String expectedMessage = String.format(MESSAGE_POOLS_LISTED_OVERVIEW, 0);
-        PooledPassengerContainsKeywordsPredicate predicate = prepareNamePredicate("Alices");
+        PooledPassengerContainsKeywordsPredicate predicate = prepareNamePredicate(VALID_NAME_BOB);
         FindPoolCommand command = new FindPoolCommand(predicate);
         expectedModel.updateFilteredPoolList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
