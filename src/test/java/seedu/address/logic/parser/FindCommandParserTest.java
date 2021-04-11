@@ -144,29 +144,32 @@ public class FindCommandParserTest {
     @Test
     public void parse_validAllArgs_returnsFindCommand() {
         // no leading and trailing whitespaces
-        FindCommand expectedAllCommand =
+        FindCommand expectedFindCommandUsingName =
                 new FindCommand(new AttributeContainsKeywordsPredicate(Collections.singletonList(VALID_NAME_BOB)));
 
         // multiple whitespaces between keywords
         assertParseSuccess(parser, " \n " + PREFIX_ALL + VALID_NAME_BOB + "\n \t", expectedAllCommand);
         assertParseSuccess(parser, " " + PREFIX_ALL + VALID_NAME_BOB, expectedAllCommand);
 
-        expectedAllCommand =
+        FindCommand expectedFindCommandUsingPhone =
                 new FindCommand(new AttributeContainsKeywordsPredicate(Collections.singletonList(VALID_PHONE_AMY)));
 
-        assertParseSuccess(parser, " \n " + PREFIX_ALL + VALID_PHONE_AMY + "\n \t", expectedAllCommand);
-        assertParseSuccess(parser, " " + PREFIX_ALL + VALID_PHONE_AMY, expectedAllCommand);
+        assertParseSuccess(parser, " \n " + PREFIX_ALL + VALID_PHONE_AMY + "\n \t",
+                expectedFindCommandUsingPhone);
+        assertParseSuccess(parser, " " + PREFIX_ALL + VALID_PHONE_AMY, expectedFindCommandUsingPhone);
 
-        expectedAllCommand =
+        FindCommand expectedFindCommandUsingAddress =
                 new FindCommand(new AttributeContainsKeywordsPredicate(Collections.singletonList(VALID_ADDRESS_AMY)));
 
-        assertParseSuccess(parser, " \n " + PREFIX_ALL + VALID_ADDRESS_AMY + "\n \t", expectedAllCommand);
-        assertParseSuccess(parser, " " + PREFIX_ALL + VALID_ADDRESS_AMY, expectedAllCommand);
+        assertParseSuccess(parser, " \n " + PREFIX_ALL + VALID_ADDRESS_AMY + "\n \t",
+                expectedFindCommandUsingAddress);
+        assertParseSuccess(parser, " " + PREFIX_ALL + VALID_ADDRESS_AMY,
+                expectedFindCommandUsingAddress);
 
-        expectedAllCommand =
+        FindCommand expectedFindCommandUsingTag =
                 new FindCommand(new AttributeContainsKeywordsPredicate(Collections.singletonList(VALID_TAG_IT)));
 
-        assertParseSuccess(parser, " " + PREFIX_ALL + VALID_TAG_IT, expectedAllCommand);
+        assertParseSuccess(parser, " " + PREFIX_ALL + VALID_TAG_IT, expectedFindCommandUsingTag);
     }
 
     @Test
